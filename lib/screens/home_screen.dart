@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../screens/second_page.dart';
 import '../getxControllers/my_controller.dart';
+import '../getxControllers/home_controller.dart';
 import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -20,7 +20,19 @@ class HomeScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Obx(
-              ()=>Text('HomePage Number : ${Get.find<MyController>().count}', textScaleFactor: 1.3,),
+              ()=>Text('Home Number : ${Get.find<HomeController>().count}', textScaleFactor: 1.3,),
+              ),
+
+            const SizedBox(height: 25,),
+            ElevatedButton(
+              onPressed: ()=>Get.find<HomeController>().increment(),
+              child: const Text('Click',textScaleFactor: 1.4,),
+            ),
+            const SizedBox(
+              height: 25,
+            ),
+            Obx(
+              ()=>Text('SecondNumber : ${Get.find<MyController>().count}', textScaleFactor: 1.3,),
               ),
 
             const SizedBox(height: 25,),
@@ -30,8 +42,8 @@ class HomeScreen extends StatelessWidget {
             ),
             const SizedBox(height: 25,),
             ElevatedButton(
-              onPressed: ()=>Get.to(SecondPage(title: title)),
-              child: const Text('Next Page', textScaleFactor: 1.2,)
+              onPressed: ()=>Get.toNamed('/second-page'),
+              child: const Text('Second Page', textScaleFactor: 1.2,)
             ),
           ],
         ),

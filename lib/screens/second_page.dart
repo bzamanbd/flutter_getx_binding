@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../getxControllers/home_controller.dart';
+import '../getxControllers/my_controller.dart';
 import 'package:get/get.dart';
 
 class SecondPage extends StatelessWidget {
@@ -19,14 +19,14 @@ class SecondPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Obx(() => Text(
-                  'SecondPage Number : ${Get.find<HomeController>().count}',
+                  'Second Number : ${Get.find<MyController>().count}',
                   textScaleFactor: 1.2,
                 )),
             const SizedBox(
               height: 20,
             ),
             ElevatedButton(
-              onPressed: () => Get.find<HomeController>().increment(),
+              onPressed: () => Get.find<MyController>().increment(),
               child: const Text(
                 'Increment',
                 textScaleFactor: 1.2,
